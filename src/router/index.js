@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
@@ -8,16 +7,58 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    redirect: { path: '/1' },
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/1',
+    name: '3857',
+    component: () => import(/* webpackChunkName: "about" */ '../views/epsg-3857.vue')
+  },
+  {
+    path: '/2',
+    name: '4326',
+    component: () => import('../views/epsg-4326.vue')
+  },
+  {
+    path: '/3',
+    name: 'mouse-click',
+    component: () => import('../views/mouse-click.vue')
+  },
+  {
+    path: '/4',
+    name: 'mouse-move',
+    component: () => import('../views/mouse-move.vue')
+  },
+  {
+    path: '/5',
+    name: 'draw',
+    component: () => import('../views/draw.vue')
+  },
+  {
+    path: '/6',
+    name: 'vector-layer',
+    component: () => import('../views/vectorLayer.vue')
+  },
+  {
+    path: '/7',
+    name: 'wms',
+    component: () => import('../views/wms.vue')
+  },
+  {
+    path: '/9',
+    name: 'index',
+    component: () => import('../views/shp.vue')
+  },
+  {
+    path: '/10',
+    name: 'cover',
+    component: () => import('../views/cover.vue')
+  },
+  {
+    path: '/13',
+    name: 'create-json',
+    component: () => import('../views/create-json.vue')
+  },
 ]
 
 const router = new VueRouter({
